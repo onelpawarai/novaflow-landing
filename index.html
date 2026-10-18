@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NovaFlow — Build Products That Move People</title>
+<meta name="description" content="NovaFlow is the all-in-one platform to design, build, and scale digital products faster than ever." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #05060a; color: #e6e9f2; overflow-x: hidden; }
+  .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+  .grad { background: radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
+                 radial-gradient(900px 500px at 90% 10%, rgba(236,72,153,.25), transparent 60%),
+                 radial-gradient(700px 400px at 50% 100%, rgba(14,165,233,.18), transparent 60%); }
+  .grad-text { background: linear-gradient(135deg, #a78bfa 0%, #ec4899 45%, #22d3ee 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .glass { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(12px); }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; transition: all .3s ease; }
+  .card:hover { border-color: rgba(167,139,250,.4); transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(124,58,237,.4); }
+  .btn-primary { background: linear-gradient(135deg,#7c3aed,#ec4899); box-shadow: 0 10px 30px -10px rgba(236,72,153,.6); }
+  .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { background: rgba(255,255,255,.08); }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .5; pointer-events: none; }
+  .float { animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .marquee { display: flex; gap: 4rem; animation: marquee 30s linear infinite; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: all .7s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+  .pulse-dot { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(1.3); } }
+  .faq-open .faq-body { max-height: 200px; opacity: 1; }
+  .faq-body { max-height: 0; opacity: 0; overflow: hidden; transition: all .3s ease; }
+  .noise { position: fixed; inset: 0; pointer-events: none; opacity: .03; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  nav { transition: background .3s ease; }
+  nav.scrolled { background: rgba(5,6,10,.7); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.06); }
+</style>
+</head>
+<body class="grad">
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-xl btn-primary flex items-center justify-center font-bold">N</div>
+      <span class="font-display font-bold text-xl">NovaFlow</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+      <a href="#features" class="hover:text-white transition">Features</a>
+      <a href="#product" class="hover:text-white transition">Product</a>
+      <a href="#pricing" class="hover:text-white transition">Pricing</a>
+      <a href="#testimonials" class="hover:text-white transition">Customers</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" class="hidden sm:block text-sm text-gray-300 hover:text-white">Sign in</a>
+      <a href="#pricing" class="btn-primary text-sm font-semibold px-5 py-2.5 rounded-full text-white">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-36 pb-24 px-6 overflow-hidden">
+  <div class="orb" style="width:420px;height:420px;background:#7c3aed;top:-100px;left:-120px;"></div>
+  <div class="orb" style="width:360px;height:360px;background:#ec4899;top:40px;right:-80px;"></div>
+  <div class="grid-bg absolute inset-0"></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="flex justify-center mb-6">
+      <span class="glass px-4 py-1.5 rounded-full text-xs font-medium text-gray-300 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+        New · NovaFlow 2.0 is live
+      </span>
+    </div>
+    <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-center leading-[1.05] tracking-tight">
+      Build products that<br/>
+      <span class="grad-text">move people.</span>
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto text-center leading-relaxed">
+      NovaFlow is the all-in-one platform where design, engineering, and growth come together.
+      Ship your next idea in days — not quarters.
+    </p>
+    <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#pricing" class="btn-primary text-base font-semibold px-7 py-3.5 rounded-full text-white text-center">Start for free →</a>
+      <a href="#product" class="btn-ghost text-base font-semibold px-7 py-3.5 rounded-full text-white text-center flex items-center justify-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Watch demo
+      </a>
+    </div>
+    <p class="mt-4 text-xs text-gray-500 text-center">No credit card required · Free forever plan · Cancel anytime</p>
+
+    <!-- Dashboard mockup -->
+    <div id="product" class="mt-16 relative">
+      <div class="card p-2 sm:p-3 rounded-2xl shadow-2xl float">
+        <div class="rounded-xl overflow-hidden bg-[#0b0d14] border border-white/5">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5">
+            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+            <div class="ml-4 text-xs text-gray-500 font-mono">novaflow.app/dashboard</div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 p-5">
+            <div class="col-span-12 md:col-span-3 space-y-3">
+              <div class="h-10 rounded-lg glass flex items-center px-3 text-sm text-gray-300">Overview</div>
+              <div class="h-9 rounded-lg bg-white/5 flex items-center px-3 text-sm text-gray-500">Analytics</div>
+              <div class="h-9 rounded-lg bg-white/5 flex items-center px-3 text-sm text-gray-500">Users</div>
+              <div class="h-9 rounded-lg bg-white/5 flex items-center px-3 text-sm text-gray-500">Revenue</div>
+              <div class="h-9 rounded-lg bg-white/5 flex items-center px-3 text-sm text-gray-500">Settings</div>
+            </div>
+            <div class="col-span-12 md:col-span-9 space-y-4">
+              <div class="grid grid-cols-3 gap-3">
+                <div class="card p-4"><div class="text-xs text-gray-500">Revenue</div><div class="text-2xl font-bold mt-1">$48,290</div><div class="text-xs text-emerald-400 mt-1">+12.4%</div></div>
+                <div class="card p-4"><div class="text-xs text-gray-500">Revenue</div><div class="text-2xl font-bold mt-1">$48,290</div><div class="text-xs text-emerald-400 mt-1">+12.4%</div></div>
+                <div class="card p-4"><div class="text-xs text-gray-500">Revenue</div><div class="text-2xl font-bold mt-1">$48,290</div><div class="text-xs text-emerald-400 mt-1">+12.4%</div></div>
+              </div>
+              <div class="card p-4">
+                <div class="flex items-end gap-2 h-40">
+                  <div class="flex-1 bg-violet-500/30 rounded-t" style="height:40%"></div>
+                  <div class="flex-1 bg-violet-500/40 rounded-t" style="height:62%"></div>
+                  <div class="flex-1 bg-violet-500/50 rounded-t" style="height:48%"></div>
+                  <div class="flex-1 bg-violet-500/60 rounded-t" style="height:75%"></div>
+                  <div class="flex-1 bg-violet-500/70 rounded-t" style="height:75%"></div>
+                  <div class="flex-1 bg-gradient-to-t from-fuchsia-500 to-violet-500 rounded-t" style="height:92%"></div>
+                  <div class="flex-1 bg-violet-500/80 rounded-t" style="height:68%"></div>
+                  <div class="flex-1 bg-violet-500/60 rounded-t" style="height:80%"></div>
+                  <div class="flex-1 bg-violet-500/50 rounded-t" style="height:55%"></div>
+                  <div class="flex-1 bg-violet-500/40 rounded-t" style="height:70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="py-12 border-y border-white/5 bg-black/20">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-center text-xs uppercase tracking-[.2em] text-gray-500 mb-6">Trusted by 2,400+ teams worldwide</p>
+    <div class="overflow-hidden">
+      <div class="marquee text-gray-400 font-display font-bold text-2xl">
+        <span>Stripe</span><span>Notion</span><span>Linear</span><span>Vercel</span><span>Figma</span><span>Slack</span><span>Shopify</span><span>HubSpot</span>
+        <span>Stripe</span><span>Notion</span><span>Linear</span><span>Vercel</span><span>Figma</span><span>Slack</span><span>Shopify</span><span>HubSpot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sm font-semibold text-violet-400 uppercase tracking-widest">Features</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3">Everything you need to ship faster</h2>
+      <p class="text-gray-400 mt-4">One platform. Zero friction. From idea to production in record time.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center text-violet-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">Visual Builder</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">Drag, drop, and ship beautiful interfaces without writing a single line of code.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-fuchsia-500/15 flex items-center justify-center text-fuchsia-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">Lightning Fast</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">Edge-deployed globally. Sub-100ms load times no matter where your users are.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/15 flex items-center justify-center text-cyan-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">Enterprise Security</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">SOC 2 Type II, GDPR, and HIPAA-ready. Your data stays yours, always.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">Deep Analytics</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">Understand every user journey with funnel, cohort, and retention insights.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">Automations</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">Trigger workflows on any event. Connect 200+ apps with zero code.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/15 flex items-center justify-center text-rose-400 mb-5">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold">AI Copilot</h3>
+        <p class="text-gray-400 mt-2 text-sm leading-relaxed">Generate copy, code, and insights on demand with our built-in AI assistant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-20 px-6 border-y border-white/5 bg-black/20">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div><div class="font-display text-5xl font-bold grad-text">2.4K+</div><div class="text-gray-400 mt-2 text-sm">Teams worldwide</div></div>
+    <div><div class="font-display text-5xl font-bold grad-text">99.99%</div><div class="text-gray-400 mt-2 text-sm">Uptime SLA</div></div>
+    <div><div class="font-display text-5xl font-bold grad-text">48ms</div><div class="text-gray-400 mt-2 text-sm">Avg. response</div></div>
+    <div><div class="font-display text-5xl font-bold grad-text">$1.2B</div><div class="text-gray-400 mt-2 text-sm">Processed annually</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sm font-semibold text-violet-400 uppercase tracking-widest">Customers</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3">Loved by builders everywhere</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-16">
+      <div class="card p-7">
+        <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
+        <p class="text-gray-300 leading-relaxed">"NovaFlow cut our launch time from 3 months to 2 weeks. The team is obsessed."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
+          <div><div class="font-semibold text-sm">Sarah Chen</div><div class="text-xs text-gray-500">CEO, Brightline</div></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
+        <p class="text-gray-300 leading-relaxed">"The analytics alone paid for the subscription 10x over. Best decision we made this year."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500"></div>
+          <div><div class="font-semibold text-sm">Marcus Reyes</div><div class="text-xs text-gray-500">Head of Growth, Pulse</div></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
+        <p class="text-gray-300 leading-relaxed">"I've tried every tool out there. NovaFlow is the only one that actually feels magical."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-rose-500"></div>
+          <div><div class="font-semibold text-sm">Aisha Patel</div><div class="text-xs text-gray-500">Founder, Makerly</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sm font-semibold text-violet-400 uppercase tracking-widest">Pricing</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3">Simple, transparent pricing</h2>
+      <p class="text-gray-400 mt-4">Start free. Scale when you're ready.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto">
+      <div class="card p-8">
+        <div class="text-sm font-semibold text-gray-400">Starter</div>
+        <div class="mt-3 flex items-baseline gap-1"><span class="font-display text-5xl font-bold">$0</span><span class="text-gray-500">/mo</span></div>
+        <p class="text-sm text-gray-400 mt-2">For individuals getting started.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> 3 projects</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> 1GB storage</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Community support</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Basic analytics</li>
+        </ul>
+        <a href="#" class="btn-ghost mt-8 block text-center py-3 rounded-full font-semibold">Get started</a>
+      </div>
+      <div class="card p-8 relative border-violet-500/50" style="background: linear-gradient(180deg, rgba(124,58,237,.12), rgba(255,255,255,.01));">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-xs font-bold px-3 py-1 rounded-full">POPULAR</div>
+        <div class="text-sm font-semibold text-violet-300">Pro</div>
+        <div class="mt-3 flex items-baseline gap-1"><span class="font-display text-5xl font-bold">$29</span><span class="text-gray-500">/mo</span></div>
+        <p class="text-sm text-gray-400 mt-2">For growing teams.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Unlimited projects</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> 100GB storage</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Priority support</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Advanced analytics</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Automations & AI</li>
+        </ul>
+        <a href="#" class="btn-primary mt-8 block text-center py-3 rounded-full font-semibold text-white">Start Pro trial</a>
+      </div>
+      <div class="card p-8">
+        <div class="text-sm font-semibold text-gray-400">Enterprise</div>
+        <div class="mt-3 flex items-baseline gap-1"><span class="font-display text-5xl font-bold">$99</span><span class="text-gray-500">/mo</span></div>
+        <p class="text-sm text-gray-400 mt-2">For large organizations.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Everything in Pro</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> SSO & SAML</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Dedicated support</li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span> Custom contracts</li>
+        </ul>
+        <a href="#" class="btn-ghost mt-8 block text-center py-3 rounded-full font-semibold">Contact sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center">
+      <span class="text-sm font-semibold text-violet-400 uppercase tracking-widest">FAQ</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3">Questions, answered</h2>
+    </div>
+    <div class="mt-12 space-y-3">
+      <div class="card faq overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center font-semibold">
+          Do I need a credit card to start?
+          <span class="text-violet-400 text-xl">+</span>
+        </button>
+        <div class="faq-body px-6 pb-5 text-gray-400 text-sm">No. The Starter plan is free forever and doesn't require a credit card. You can upgrade anytime.</div>
+      </div>
+      <div class="card faq overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center font-semibold">
+          Can I cancel anytime?
+          <span class="text-violet-400 text-xl">+</span>
+        </button>
+        <div class="faq-body px-6 pb-5 text-gray-400 text-sm">Yes, cancel in one click from your dashboard. No questions asked, no hidden fees.</div>
+      </div>
+      <div class="card faq overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center font-semibold">
+          Is my data secure?
+          <span class="text-violet-400 text-xl">+</span>
+        </button>
+        <div class="faq-body px-6 pb-5 text-gray-400 text-sm">We're SOC 2 Type II certified, GDPR compliant, and encrypt all data at rest and in transit with AES-256.</div>
+      </div>
+      <div class="card faq overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-5 flex justify-between items-center font-semibold">
+          Can I cancel anytime?
+          <span class="text-violet-400 text-xl">+</span>
+        </button>
+        <div class="faq-body px-6 pb-5 text-gray-400 text-sm">Yes, cancel in one click from your dashboard. No questions asked, no hidden fees.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="card p-12 md:p-16 text-center relative overflow-hidden">
+      <div class="orb" style="width:300px;height:300px;background:#7c3aed;top:-80px;left:-60px;opacity:.4;"></div>
+      <div class="orb" style="width:300px;height:300px;background:#ec4899;bottom:-80px;right:-60px;opacity:.4;"></div>
+      <div class="relative z-10">
+        <h2 class="font-display text-4xl md:text-5xl font-bold">Ready to build something amazing?</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Join 2,400+ teams shipping faster with NovaFlow. Start free today.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#pricing" class="btn-primary text-base font-semibold px-7 py-3.5 rounded-full text-white">Start for free →</a>
+          <a href="#" class="btn-ghost text-base font-semibold px-7 py-3.5 rounded-full text-white">Talk to sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-16 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-5 gap-8">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl btn-primary flex items-center justify-center font-bold">N</div>
+        <span class="font-display font-bold text-xl">NovaFlow</span>
+      </div>
+      <p class="text-gray-500 text-sm mt-4 max-w-xs">The all-in-one platform to design, build, and scale digital products.</p>
+    </div>
+    <div>
+      <div class="font-semibold text-sm mb-4">Product</div>
+      <ul class="space-y-2 text-sm text-gray-500">
+        <li><a href="#features" class="hover:text-white">Features</a></li>
+        <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+        <li><a href="#" class="hover:text-white">Changelog</a></li>
+        <li><a href="#" class="hover:text-white">Roadmap</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-semibold text-sm mb-4">Company</div>
+      <ul class="space-y-2 text-sm text-gray-500">
+        <li><a href="#" class="hover:text-white">About</a></li>
+        <li><a href="#" class="hover:text-white">Blog</a></li>
+        <li><a href="#" class="hover:text-white">Careers</a></li>
+        <li><a href="#" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-semibold text-sm mb-4">Legal</div>
+      <ul class="space-y-2 text-sm text-gray-500">
+        <li><a href="#" class="hover:text-white">Security</a></li>
+        <li><a href="#" class="hover:text-white">Status</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between text-xs text-gray-600">
+    <div>© 2025 NovaFlow Inc. All rights reserved.</div>
+    <div class="mt-2 sm:mt-0">Built with ♥ by ZYRAXON-Pro</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => io.observe(r));
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.faq');
+      card.classList.toggle('faq-open');
+      const span = btn.querySelector('span');
+      span.textContent = card.classList.contains('faq-open') ? '−' : '+';
+    });
+  });
+</script>
+</body>
+</html>
